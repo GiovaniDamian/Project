@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Products</h1>
+    <div class="row">
+        {% for product in quarto %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">Código:{{ product.code }}</p>
+                    <p class="card-text">Preço Mínimo: R${{ product.price }}</p>
+                    <p class="card-text">{{ product.description }}</p>
+                    <a href="http://127.0.0.1:8000/products/new" class="btn btn-primary">Dar seu lance</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
